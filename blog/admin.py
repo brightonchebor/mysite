@@ -8,6 +8,7 @@ class AuthorAdmin(admin.ModelAdmin):
     
 admin.site.register(models.Post, AuthorAdmin)
 """
+
 @admin.register(models.Post)
 class AuthorAdmin(admin.ModelAdmin):
 
@@ -23,4 +24,6 @@ class CommentAdmin(admin.ModelAdmin):
     list_display = ("post", "name", "email", "publish", "status")
     list_filter = ("status", "publish")
     search_fields = ("name", "email", "comment")
+
+admin.site.register(models.Category)
     
