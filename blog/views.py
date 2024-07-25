@@ -7,6 +7,7 @@ from django.views.generic import ListView
 def home(request):
 
     all_posts = Post.newmanager.all()
+    # all_posts = Category.objects.exclude(name='default')
 
     return render(request, 'index.html', {'posts': all_posts})
 
@@ -51,6 +52,7 @@ class CatListView(ListView):
         }
         return content
 
+
 def category_list(request):
 
     category_list = Category.objects.exclude(name='default')
@@ -58,6 +60,14 @@ def category_list(request):
         "category_list": category_list,
     }
     return context
+
+
+def category_list(request):
+
+    template_name = 'base.html'
+    category_list = Category.objects.all()
+    return render(request, 'base.html', {'category_list':category_list})
+    
 
     
 

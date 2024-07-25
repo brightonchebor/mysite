@@ -27,17 +27,26 @@
               <li class="nav-item">
                 <a class="nav-link" aria-current="page" href="http://localhost:8000/"> Home </a>
               </li>
-              
+
               <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> Categories </a>
+
                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+
                   {% for category in category_list %}
-                    <a class="dropdown-item" href="/category/{{ category.name }}">
-                      {{ category.name|title }}
-                    </a>
+                  <a class="dropdown-item" href="/category/{{ category.name }}">
+                    {{ category.name|title }}
+                  </a>
                   {% endfor %}
+
                 </div>
               </li>
+              <li class="nav-item">
+                {% for category in category_list %}
+                  <p> {{ category.name }} </p>
+                {% endfor %}
+              </li>
+
 
             </ul>
         
