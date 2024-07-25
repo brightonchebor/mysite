@@ -42,6 +42,7 @@ class CatListView(ListView):
     context_object_name = 'catlist'
 
     def get_queryset(self):
+
         content = {
             'cat': self.kwargs['category'],
             'posts': Post.objects.filter(category__name=self.kwargs['category']).filter(
@@ -51,7 +52,13 @@ class CatListView(ListView):
         return content
 
 def category_list(request):
+    
     category_list = Category.objects.exclude(name='default')
+    context = {
+        'category_list': category_list,
+    }
+    return context
+
     
 
 
