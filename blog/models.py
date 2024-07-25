@@ -12,9 +12,12 @@ class Category(models.Model):
 
 class Post(models.Model):
     
+    """ 
     class NewManager(models.Manager):
         def get_queryset(self):
             return super().get_queryset() .filter(status='published')
+    """
+   
 
     options = (
         ('draft', 'Draft'),
@@ -30,7 +33,7 @@ class Post(models.Model):
     content = models.TextField()
     status = models.CharField(max_length=10, choices=options, default='draft')
     objects = models.Manager() # default manager
-    newmanager = NewManager() # custom manager
+    # newmanager = NewManager() # custom manager
 
     def get_absolute_url(self):
         return reverse('blog:post_single',args=[self.slug])

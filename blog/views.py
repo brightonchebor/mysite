@@ -4,12 +4,31 @@ from .forms import NewCommentForm
 from django.views.generic import ListView
 
 # Create your views here.
+"""
 def home(request):
 
     all_posts = Post.newmanager.all()
     # all_posts = Category.objects.exclude(name='default')
 
     return render(request, 'index.html', {'posts': all_posts})
+"""
+
+
+class HomeView(ListView):
+
+    model = Post
+    template_name = 'indexx.html'
+    cats = Category.objects.all()
+
+    def get_context_data(self, *args, **kwargs):
+        
+        category_list = Category.objects.all()
+        context = super(HomeView, self).get_context_data(*args, **kwargs)
+        context["category_list"] = category_list
+        return context
+
+
+
 
 def post_single(request, post):
 
@@ -52,7 +71,7 @@ class CatListView(ListView):
         }
         return content
 
-
+"""
 def category_list(request):
 
     category_list = Category.objects.exclude(name='default')
@@ -61,12 +80,10 @@ def category_list(request):
     }
     return context
 
+"""
 
-def category_list(request):
 
-    template_name = 'base.html'
-    category_list = Category.objects.all()
-    return render(request, 'base.html', {'category_list':category_list})
+
     
 
     
