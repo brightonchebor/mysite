@@ -17,8 +17,8 @@ def home(request):
 class HomeView(ListView):
 
     model = Post
-    template_name = 'indexx.html'
-    cats = Category.objects.all()
+    template_name = 'index.html'
+    cats = Category.objects.exclude(name='default')
 
     def get_context_data(self, *args, **kwargs):
         

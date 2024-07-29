@@ -11,20 +11,19 @@
 
     <div class="row justify-content-md-center">
     <div class="col-md-8">
+
     {% for post in object_list %}
+
         <div class="col-12 pt-5">
         <h1>
         <a class="text-dark" href="{{ post.get_absolute_url }}"> {{ post.title }} </a>
         </h1>
         </div>
-        <div class="col-12"> <p> {{ post.excerpt }} </P> </div><br/>
+        <div class="col-12"> <p> {{ post.excerpt }} </p> </div><br/>
         
     {% endfor %}
     
-    {% for category in category_list %}
-    {{ category.name }} <br/>
-    {% endfor %}
-
+    
     </div>
     </div>
 
