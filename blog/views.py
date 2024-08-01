@@ -4,16 +4,16 @@ from .forms import NewCommentForm
 from django.views.generic import ListView
 
 # Create your views here.
-"""
+
 def home(request):
 
     all_posts = Post.newmanager.all()
     # all_posts = Category.objects.exclude(name='default')
 
     return render(request, 'index.html', {'posts': all_posts})
+
+
 """
-
-
 class HomeView(ListView):
 
     model = Post
@@ -26,6 +26,8 @@ class HomeView(ListView):
         context = super(HomeView, self).get_context_data(*args, **kwargs)
         context["category_list"] = category_list
         return context
+
+"""
 
 
 
@@ -71,7 +73,7 @@ class CatListView(ListView):
         }
         return content
 
-"""
+
 def category_list(request):
 
     category_list = Category.objects.exclude(name='default')
@@ -80,7 +82,7 @@ def category_list(request):
     }
     return context
 
-"""
+
 
 
 
