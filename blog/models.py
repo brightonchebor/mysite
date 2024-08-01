@@ -27,6 +27,7 @@ class Post(models.Model):
     title = models.CharField(max_length=255)
     category = models.ForeignKey(Category, on_delete=models.PROTECT, default=1)
     excerpt = models.TextField(null=True)
+    image = models.ImageField(upload_to='posts/', default='posts/default.jpg')
     slug = models.SlugField(max_length=255, unique_for_date='publish')
     publish = models.DateTimeField(default=timezone.now)
     author = models.ForeignKey(User, on_delete=models.CASCADE, related_name='blog_posts')
