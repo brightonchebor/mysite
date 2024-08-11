@@ -21,13 +21,20 @@
                 </h2>
                 {% endwith %}
 
-                {% for comment in comments  %}
-                Comment {{ forloop.counter }} by {{ comment.name }} 
-                on {{ comment.publish }}
-                {{  comment.content|linebreaks }}
-                {% empty %}
-                <p> There are no comments for this post. </p>
-                {% endfor %}
+                {% load mptt_tags %}
+                <div> 
+                    {% recursetree comments %}
+
+                    <div> {{ node.content }} </div>
+
+                        {% if not node.is_leaf_node %}
+                        <div class="children pl-2 pl-md-5"> 
+                            {{ children }}
+                        </div>
+                        {% endif %}
+
+                    {% endrecursetree %}
+                </div>
 
                 <h2> Make a new comment </h2>
                 <form id="myForm" method="post">
