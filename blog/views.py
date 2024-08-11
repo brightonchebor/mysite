@@ -1,5 +1,5 @@
 from django.shortcuts import render, get_object_or_404, HttpResponseRedirect
-from .models import Post, Comment, Category
+from .models import Post,  Category, Comment
 from .forms import NewCommentForm
 from django.views.generic import ListView
 

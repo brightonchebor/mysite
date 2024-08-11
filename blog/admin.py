@@ -18,12 +18,7 @@ class AuthorAdmin(admin.ModelAdmin):
     }
 
 
-@admin.register(models.Comment)
-class CommentAdmin(admin.ModelAdmin):
 
-    list_display = ("post", "name", "email", "publish", "status")
-    list_filter = ("status", "publish")
-    search_fields = ("name", "email", "comment")
 
 admin.site.register(models.Category)
     
