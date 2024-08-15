@@ -22,4 +22,6 @@ admin.site.register(models.Comment, MPTTModelAdmin)
 
 
 admin.site.register(models.Category)
+
+
     
