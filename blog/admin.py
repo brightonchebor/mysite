@@ -21,7 +21,4 @@ class AuthorAdmin(admin.ModelAdmin):
 admin.site.register(models.Comment, MPTTModelAdmin)
 
 
-admin.site.register(models.Category)
-
-
-    
+admin.site.register(models.Category) 

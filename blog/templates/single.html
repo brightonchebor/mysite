@@ -25,8 +25,11 @@
                 <div> 
                     {% recursetree comments %}
 
-                    <div> {{ node.content }} </div>
+                    <div id="{{ node.id }}"> {{ node.content }} </div>
                     <div> {{ node.level }} </div>
+                    </hr>
+                    <button class="button" onclick="myFunction({{ node.id }})"> Reply </button>
+
 
                         {% if not node.is_leaf_node %}
                         <div class="children pl-2 pl-md-5"> 
@@ -49,6 +52,15 @@
         </div>
     
     </div>
+<script> 
+ function myFunction(id) {
+    var a = document.getElementById(id);
+    a.insertAdjacentHTML('afterend', 'hi');
+
+ }
+
+
+</script>
     
 {% endblock %}
 
